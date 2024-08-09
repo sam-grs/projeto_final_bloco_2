@@ -43,7 +43,6 @@ export class ProductController {
         return this.productService.delete(id)
     }
 
-    // testar primeiro e ver se faz sentido para a aplicacao
     @Get('/preco/:preco')
     @HttpCode(HttpStatus.OK)
     findPrice(@Param('preco') price: number, value: number): Promise<ProductEntity[]> {
