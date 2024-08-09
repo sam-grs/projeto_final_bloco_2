@@ -1,6 +1,8 @@
 import { Transform, TransformFnParams } from 'class-transformer'
 import { IsNotEmpty } from 'class-validator'
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+
+import { ProductEntity } from '../../product/entities/product.entity'
 
 @Entity({ name: 'tb_category' })
 export class CategoryEntity {
@@ -11,4 +13,7 @@ export class CategoryEntity {
     @IsNotEmpty()
     @Column({ length: 100, nullable: false })
     category_type: string
+
+    @OneToMany(() => ProductEntity, (product) => product.category)
+    product: ProductEntity[]
 }
