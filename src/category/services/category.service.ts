@@ -12,11 +12,11 @@ export class CategoryService {
     ) {}
 
     async findAll(): Promise<CategoryEntity[]> {
-        return await this.categoryRepository.find()
+        return await this.categoryRepository.find({ relations: { product: true } })
     }
 
     async findById(id: number): Promise<CategoryEntity> {
-        let category = await this.categoryRepository.findOne({ where: { id } })
+        let category = await this.categoryRepository.findOne({ where: { id }, relations: { product: true } })
 
         if (!category) throw new HttpException('Categoria não encontrada!', HttpStatus.NOT_FOUND)
         return category
@@ -25,6 +25,7 @@ export class CategoryService {
     async findByType(category_type: string): Promise<CategoryEntity[]> {
         return await this.categoryRepository.find({
             where: { category_type: ILike(`%${category_type}%`) },
+            relations: { product: true },
         })
     }
 
