@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common'
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { CategoryModule, CategoryEntity } from './category'
+
+import { CategoryModule } from './category/category.module'
+import { CategoryEntity } from './category/entities/category.entity'
+import { ProductModule } from './product/product.module'
+import { ProductEntity } from './product/entities/product.entity'
 @Module({
     imports: [
         TypeOrmModule.forRoot({
@@ -12,13 +14,14 @@ import { CategoryModule, CategoryEntity } from './category'
             username: 'root',
             password: '217684',
             database: 'db_bloco_2',
-            entities: [CategoryEntity],
+            entities: [CategoryEntity, ProductEntity],
             synchronize: true,
             bigNumberStrings: true,
         }),
         CategoryModule,
+        ProductModule,
     ],
-    controllers: [AppController],
-    providers: [AppService],
+    controllers: [],
+    providers: [],
 })
 export class AppModule {}
