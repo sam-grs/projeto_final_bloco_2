@@ -23,3 +23,12 @@ Desenvolver duas tabelas Produto e Categoria, cuja a relação de Categoria 1 - 
 -   [x] Fazer o CRUD completo do recurso Categoria (6 métodos)
 -   [x] Testar a aplicação com o Insomnia
 -   [x] Atualize a branch category-02
+
+### Terceira Etapa — Construção do segundo CRUD com Relacionamento
+
+-   [x] Crie uma nova Branch, chamada relationship-product-03
+-   [x] Fazer o CRUD completo do recurso Produto (6 métodos)
+-   [x] Crie o Relacionamento entre Categoria e Produto, do tipo OneToMany Bidirecional.
+-   [x] Habilite o Relacionamento no Recurso Categoria
+-   [x] Testar a aplicação com o Insomnia
+-   [x] Atualize a branch relationship-product-03
