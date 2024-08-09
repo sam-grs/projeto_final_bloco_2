@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { TypeOrmModule } from '@nestjs/typeorm'
-
+import { CategoryModule, CategoryEntity } from './category'
 @Module({
     imports: [
         TypeOrmModule.forRoot({
@@ -12,10 +12,11 @@ import { TypeOrmModule } from '@nestjs/typeorm'
             username: 'root',
             password: '217684',
             database: 'db_bloco_2',
-            entities: [],
+            entities: [CategoryEntity],
             synchronize: true,
             bigNumberStrings: true,
         }),
+        CategoryModule,
     ],
     controllers: [AppController],
     providers: [AppService],
