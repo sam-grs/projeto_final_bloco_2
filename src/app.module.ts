@@ -5,6 +5,8 @@ import { CategoryModule } from './category/category.module'
 import { CategoryEntity } from './category/entities/category.entity'
 import { ProductModule } from './product/product.module'
 import { ProductEntity } from './product/entities/product.entity'
+import { AppController } from './app.controller'
+
 @Module({
     imports: [
         TypeOrmModule.forRoot({
@@ -21,7 +23,7 @@ import { ProductEntity } from './product/entities/product.entity'
         CategoryModule,
         ProductModule,
     ],
-    controllers: [],
+    controllers: [AppController],
     providers: [],
 })
 export class AppModule {}
